@@ -20,7 +20,20 @@
 
 </head>
 <body>
-  
+  <!--
+  <audio autoplay loop>
+    <source src="music/GODS-NEWJEANS.mp3" type="audio/mp3">
+  </audio>
+-->
+
+  <!-- Fixed play/pause button -->
+  <div id="audioControl" class="play"></div>
+
+  <!-- Audio player -->
+  <audio id="musicPlayer" src="music/GODS-NEWJEANS.mp3" autoplay>
+    
+  </audio>
+
   <header>
     <a href="#" class="logo">PADA<span>YON</span></a>
 
@@ -111,7 +124,7 @@
       <p>This itinerary will help you navigate and be guided by the places that Silang has to offer, and with that, we have provided you with some activities and services that those places can offer. With the organized order of places that you should go to when you visit Silang Cavite, we hope that you enjoy and treasure this moment. We are glad to be able to help, and as always, our Padayon team is always here to help Maraming Salamat!</p>
       <h5><span class="holiday-email-us">email us your experience</span></h5>
       
-      <a href="#" class="btn">Send Feedback</a>
+      <a href="mailto:Business.padayonturismo@gmail.com" class="btn">Send Feedback</a>
     </div>
   </section>
 
@@ -250,8 +263,25 @@
     <p>Copyright 2023 By PKD</p>
   </div>
   
-  <script src="/js/script.js"></script>
+
   <script>
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", function() {
+  header.classList.toggle("sticky", window.scrollY > 60)
+});
+
+let menu = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () => {
+  menu.classList.toggle('bx-x');
+  navbar.classList.toggle('open');
+};
+
+
+
     function scrollByPixels(pixels) {
       event.preventDefault();
 
@@ -305,6 +335,23 @@
             isHidden2 = true;
         }
     }
+
+    var audio = document.getElementById('musicPlayer');
+var audioControl = document.getElementById('audioControl');
+
+audioControl.addEventListener('click', function () {
+    if (audio.paused) {
+        audio.play();
+        audioControl.classList.remove('play');
+        audioControl.classList.add('pause');
+    } else {
+        audio.pause();
+        audioControl.classList.remove('pause');
+        audioControl.classList.add('play');
+    }
+});
+    
+
   </script>
   
 </body>

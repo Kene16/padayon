@@ -185,6 +185,8 @@ header.sticky{
   padding: 25px;
   font-family: sans-serif;
   overflow: hidden;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .hidden-div span{
@@ -427,6 +429,8 @@ header.sticky{
 .menu-item p {
   font-size: 1rem;
   color: #777;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .GPS-image{
@@ -458,6 +462,8 @@ header.sticky{
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 9rem;
+  text-align: justify;
+  text-justify: inter-word;  
 }
 
 .Culture-img img{
@@ -587,6 +593,11 @@ header.sticky{
 
 }
 
+.card p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .profile{
   display: flex;
   align-items: center;
@@ -654,6 +665,31 @@ header.sticky{
 ::selection{
   background: var(--main-color);
   color: #fff;
+}
+
+#audioControl {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  z-index: 1000;
+}
+
+#audioControl.play::before {
+  content: "Play"; /* Play icon */
+}
+
+#audioControl.pause::before {
+  content: "Pause"; /* Pause icon */
 }
 
 
@@ -863,6 +899,66 @@ header.sticky{
     font-size: 13px;
     line-height: normal;
   }
+
+  .image-gallery {
+    width: 100%;
+    max-width:950px;
+    margin: 0 auto;
+    padding: 50px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+    grid-gap:5px;
+  }
+  
+  .image-gallery .image-box{
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image-gallery .image-box:nth-child(7n+1){
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .image-gallery .image-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+  }
+  
+  .image-gallery .image-box:hover img{
+    transform: scale(1.1);
+    
+  }
+}
+
+@media (max-width: 500px){
+  .profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile img{
+    width: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile h3{
+    font-size: 22px;
+    color: var(--main-color);
+    margin-bottom: 4px;
+  }
+  
+  .card p{
+    font-size: 12px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
 
 @media (max-width: 480px) {
@@ -877,5 +973,27 @@ header.sticky{
   }
   .call-button {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 468px){
+  .hidden-div{
+    margin-left: 0px;
+  }
+
+  .hidden-div p{
+    font-size: 12px;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 444px){
+  .hidden-div{
+    margin-left: 0px;
+  }
+
+  .hidden-div p{
+    font-size: 11px;
+    line-height: normal;
   }
 }

@@ -27,6 +27,13 @@
 
 </head>
 <body>
+  <!-- Fixed play/pause button -->
+  <div id="audioControl" class="play"></div>
+
+  <!-- Audio player -->
+  <audio id="musicPlayer" src="music/GODS-NEWJEANS.mp3" autoplay>
+    
+  </audio>
   
   <header>
     <a href="index.html" class="logo">PADA<span>YON</span></a>
@@ -297,40 +304,52 @@
 <!--FOOD MENU SECITON-->
 
 <section class="menu-section">
-  <h2 class="our-food-menu"><span>Food</span> Menu</h2>
+  <h2 class="our-food-menu"><span>Best</span> Sellers</h2>
   <div class="menu-container">
       <div class="menu-item">
-          <img src="img/PerlasNgSilangLaksa.jpeg">
-          <h3>Seafood Laksa (P450)</h3>
-          <p>Try our <b><span>bestseller</span></b> Supreme Seafood Laksa</p>
+          <img src="img/PerlasNgSilangLaksa.jpg">
+          <h3>Seafood Laksa</h3>
+          <p>consists of rice noodles, coconut milk, shrimp, bean sprouts, tofu, laksa leaves, and a flavorful broth made with spices such as lemongrass, chili, and curry.</p>
       </div>
       <div class="menu-item">
-          <h3>Green Papaya and Shrimp Salad (P380)</h3>
-          <p>Traditional pizza with tomato sauce, mozzarella, and basil.</p>
+          <img src="img/PerlasNgSilangBeefRendang.jpg">
+          <h3>Indonesian Beef Rendang</h3>
+          <p>includes beef simmered in a rich coconut milk-based sauce with a blend of aromatic spices such as lemongrass, galangal, turmeric, and chili.</p>
       </div>
       <div class="menu-item">
-          <h3>Stir-fried Chinese-inspired Spicy Seafood Noodles</h3>
-          <p>Creamy pasta with grilled chicken, garlic, and parmesan.</p>
+         <img src="img/PerlasNgSilangPadThai.jpg">
+          <h3>Pad Thai</h3>
+          <p>includes rice noodles, shrimp or tofu, bean sprouts, peanuts, eggs, and a flavorful sauce made from tamarind paste, fish sauce, and chili.</p>
       </div>
       <div class="menu-item">
-          <h3>Chicken Satay with peanut sauce (P360 / 6 pieces)</h3>
-          <p>Fresh romaine lettuce with croutons, parmesan, and Caesar dressing.</p>
+          <img src="img/PerlasNgSIlangCrispyPata.jpg">
+          <h3>Crispy Pata</h3>
+          <p>deep-fried pork knuckles or hocks until they become crispy on the outside while remaining tender inside. It's often seasoned with a mix of garlic, bay leaves, peppercorns, and served with a dipping sauce.</p>
       </div>
       <div class="menu-item">
-          <h3>Salt and Pepper Fried Ribs (P420)</h3>
-          <p>Juicy beef patty with lettuce, tomato, and special sauce.</p>
+          <img src="img/PerlasNgSilangFriedRibs.jpg">
+          <h3>Fried Salt and Pepper Ribs</h3>
+          <p>consist of pork ribs seasoned with salt, pepper, and sometimes additional spices. The ribs are then deep-fried until crispy, creating a flavorful and crunchy dish.</p>
       </div>
       <div class="menu-item">
-          <h3>Vietnamese Fresh Spring Rolls / Cha Gioi Cha (P200)</h3>
-          <p>Assorted fruits with a drizzle of honey and mint.</p>
+          <img src="img/PerlasNgSilangKungPaoChicken.jpg">
+          <h3>KungPaoChicken</h3>
+          <p> includes diced chicken stir-fried with peanuts, vegetables (such as bell peppers and zucchini), and chili peppers. </p>
       </div>
       <div class="menu-item">
-        <h3>Thai Fried Spring Rolls / Popiah Tod (220)</h3>
-        <p>Assorted fruits with a drizzle of honey and mint.</p>
+        <img src="img/PerlasNgSilangKareKare.jpg">
+        <h3>Crispy Kare Kare</h3>
+        <p>crispy pork belly or oxtail served with a rich and savory Filipino Kare-Kare sauce made from ground peanuts, garlic, onions, and annatto. It's often accompanied by vegetables like string beans and eggplant.</p>
       </div>
       <div class="menu-item">
-        <h3>Mango Sticky Rice / Khao Niaew Mamuang (P205)</h3>
-        <p>Assorted fruits with a drizzle of honey and mint.</p>
+        <img src="img/PerlasNgSilangGreenPapaya.jpg">
+        <h3>Green Papaya Shrimp Salad</h3>
+        <p>includes shredded green papaya, cooked shrimp, cherry tomatoes, lime, fish sauce, peanuts, and Thai chili for a zesty and refreshing salad.</p>
+      </div>
+      <div class="menu-item">
+        <img src="img/PerlasNgSilangMangoStickyRice.jpg">
+        <h3>Mango Sticky Rice</h3>
+        <p>includes glutinous rice, ripe mango slices, coconut milk, sugar, and a pinch of salt for a simple and delicious dessert.</p>
     </div>
   </div>
 </section>
@@ -447,8 +466,6 @@
   
 </section>
 
-
-  <script src="/js/script.js"></script>
   
   <script>
 
@@ -501,7 +518,38 @@
         }
     }
 
-  </script>
+
+    const header = document.querySelector("header");
+
+window.addEventListener("scroll", function() {
+  header.classList.toggle("sticky", window.scrollY > 60)
+});
+
+let menu = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () => {
+  menu.classList.toggle('bx-x');
+  navbar.classList.toggle('open');
+};
+
+var audio = document.getElementById('musicPlayer');
+var audioControl = document.getElementById('audioControl');
+
+audioControl.addEventListener('click', function () {
+    if (audio.paused) {
+        audio.play();
+        audioControl.classList.remove('play');
+        audioControl.classList.add('pause');
+    } else {
+        audio.pause();
+        audioControl.classList.remove('pause');
+        audioControl.classList.add('play');
+    }
+});
+
+
+</script>
 
 
 </body>

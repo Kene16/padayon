@@ -193,6 +193,8 @@ header.sticky{
   padding: 25px;
   font-family: sans-serif;
   overflow: hidden;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .hidden-div span{
@@ -257,6 +259,7 @@ header.sticky{
   font-size: 1rem;
   color: #777;
 }
+
 
 
 
@@ -547,6 +550,31 @@ header.sticky{
 
 }
 
+#audioControl {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  z-index: 1000;
+}
+
+#audioControl.play::before {
+  content: "Play"; /* Play icon */
+}
+
+#audioControl.pause::before {
+  content: "Pause"; /* Pause icon */
+}
+
 @media (max-width: 1700px){
   header{
     padding: 18px 8%;
@@ -651,6 +679,17 @@ header.sticky{
   }
 }
 
+@media (max-width: 850px){
+  .menu-container{
+    grid-template-columns: repeat(auto-fit, minmax(calc(16.66% - 20px), 1fr));
+    gap: 10px;
+  }
+  
+  .menu-item {
+    padding: 10px;
+  }
+}
+
 @media (max-width: 800px){
   .holiday{
     grid-template-columns: 1fr;
@@ -671,6 +710,7 @@ header.sticky{
   .hidden-div p{
     font-size: 11px;
   }
+
 }
 
 @media (max-width: 740px){
@@ -684,6 +724,15 @@ header.sticky{
   .hidden-div p{
     font-size: 12px;
     line-height: 20px;
+  }
+
+  .menu-container{
+    grid-template-columns: repeat(auto-fit, minmax(calc(33.33% - 20px), 1fr));
+    gap: 5px;
+  }
+  
+  .menu-item {
+    padding: 2px;
   }
 }
 
